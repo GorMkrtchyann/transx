@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {Images} from "../assets/images/Images";
 
-function FooterComponent(props) {
+function Footer() {
     return (
         <div className="container">
             <div className="row">
@@ -9,17 +10,10 @@ function FooterComponent(props) {
                     <h6 className="page-footer__title title--white">Discover</h6>
                     <ul className="page-footer__menu list--reset">
                         <li><Link to={'#'}>About us</Link></li>
-                        <li><Link to={'#'}>Pricing plan</Link></li>
-                        <li><Link to={'#'}>Elements</Link></li>
-                        <li><Link to={'#'}>Team</Link></li>
-                        <li><Link to={'#'}>Warehouse</Link></li>
-                        <li><Link to={'#'}>Contact</Link></li>
-                        <li><Link to={'#'}>Careers</Link></li>
+                        <li><Link to={'#'}>Contact Us</Link></li>
                         <li><Link to={'#'}>Calculator</Link></li>
-                        <li><Link to={'#'}>Site map</Link></li>
                         <li><Link to={'#'}>Services</Link></li>
                         <li><Link to={'#'}>Contact</Link></li>
-                        <li><Link to={'#'}>FAQ</Link></li>
                     </ul>
                 </div>
                 <div className="col-md-6 col-lg-5 col-xl-4 offset-xl-1 top-40 top-md-0">
@@ -34,7 +28,7 @@ function FooterComponent(props) {
                 </div>
                 <div
                     className="col-lg-3 d-flex flex-column justify-content-between align-items-sm-center align-items-lg-end top-40 top-lg-0">
-                    <div className="page-footer__logo"><Link to={"index.html"}><img src="img/logo_white.png"
+                    <div className="page-footer__logo"><Link to={"index.html"}><img src={Images.logo}
                                                                                     alt="logo"/></Link></div>
                     <ul className="socials list--reset">
                         <li className="socials__item"><Link className="socials__link" to={'#'}>
@@ -78,4 +72,4 @@ function FooterComponent(props) {
     );
 }
 
-export default FooterComponent;
+export default Footer;
