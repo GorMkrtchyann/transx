@@ -1,0 +1,221 @@
+
+@import "vars";
+
+*, body{
+  padding: 0;
+  margin: 0;
+}
+
+.container{
+  max-width: 1440px;
+  width: 80%;
+  margin: 0 auto;
+  @media screen and (max-width: 1085px){
+    width: 90%;
+  }
+}
+
+.header{
+  position: absolute;
+  width: 100%;
+  .sub-header{
+    font-family: $layout-font;
+    color: $white;
+    position: relative;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 26%, $bg-blue 27%);
+    padding: 20px 0;
+    z-index: 1;
+    @media screen and (max-width: 890px){
+      background: #fff;
+      .mob-menu-btn{
+        display: block;
+      }
+      .logo{
+        width: auto;
+        clip-path: none;
+        height: auto;
+        img{
+          width: 150px;
+        }
+      }
+    }
+  }
+  .container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .logo{
+    width: 30%;
+    cursor: pointer;
+    background: #fff;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-content: center;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+    box-sizing: border-box;
+    margin-left: 10%;
+    img{
+      width: 250px;
+      object-fit: contain;
+      @media screen and (max-width: 1170px){
+        width: 200px;
+      }
+    }
+    @media screen and (max-width: 1085px){
+      margin-left: 5%;
+    }
+  }
+  &__right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 60%;
+    &__top{
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      padding-bottom: 15px;
+      @media screen and (max-width: 1170px){
+        gap: 30px;
+      }
+      &--call, &--mail{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        svg{
+          width: 35px;
+          height: 35px;
+          path{
+            color: $green;
+          }
+        }
+        & > div{
+          b{
+            font-weight: 600;
+            display: block;
+            line-height: 15px;
+            font-size: 15px;
+          }
+          a{
+            color: $white;
+            text-decoration: none;
+            font-size: 13px;
+          }
+        }
+      }
+      &--btn{
+        color: $white;
+        text-transform: uppercase;
+        padding: 13px 25px;
+        background: $green;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    }
+    .dec-line{
+      height: 1px;
+      width: 100%;
+      background: $white;
+      position: absolute;
+      right: 0;
+      top: 25px;
+      bottom: 0;
+      margin: auto 0;
+    }
+    &__bottom{
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      align-self: flex-start;
+      padding-top: 15px;
+      width: 100%;
+      justify-content: space-between;
+      a{
+        color: $white;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        transition: 0.2s;
+        white-space: nowrap;
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+    @media screen and (max-width: 970px){
+      width: 65%;
+    }
+    @media screen and (max-width: 890px){
+      display: none;
+    }
+  }
+  .mob-menu-btn{
+    display: none;
+  }
+  .dropdown{
+    position: relative;
+    &__menu{
+      position: absolute;
+      background: $bg-blue;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 12px 5px;
+      overflow: hidden;
+      transition: 0.4s;
+      left: -10px;
+      a{
+        white-space: nowrap;
+        padding: 10px 0;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        &:last-child{
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.mob-menu{
+  background: $bg-blue;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  overflow: hidden;
+  transition: 0.4s;
+  transform: translateY(-100%);
+  a{
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: $layout-font;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    &:last-child{
+      border: none;
+    }
+    &.active{
+      color: $green;
+    }
+  }
+  &--perv{
+    margin-left: 10px;
+  }
+  &.active{
+    transform: translateY(0);
+  }
+  @media screen and (min-width: 890px){
+    display: none;
+  }
+}
