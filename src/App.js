@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import Calculator from "./page/Calculator";
 import { Header } from "./components/header";
+import AboutPage from "./page/AboutPage";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/calculator" element={<Calculator/>} />
+        <Route path="/about" element={<AboutPage/>} />
       </Routes>
     </>
   );
