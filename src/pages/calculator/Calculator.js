@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import calculatorImg from '../../assets/images/bg/calculator.jpg';
 import CalculatorForm from './Calculatorform.js';
 import '../../assets/style/calculyator.scss'
-import {Banner} from "../../components/banner";
+import { Banner } from "../../components/banner";
 import Footer from "../../components/footer";
 
 export const Calculator = () => {
@@ -15,7 +15,7 @@ export const Calculator = () => {
         width: "",
         length: ""
     }])
-
+console.log(form)
     function handleForm() {
         if (form.length < 5) {
             return setForm([...form, {
@@ -33,7 +33,7 @@ export const Calculator = () => {
     return (
         <div className="page-wrapper">
             <main className="main">
-                <Banner title={'Calculator'} img={calculatorImg}/>
+                <Banner title={'Calculator'} img={calculatorImg} />
                 <section className="section calculator">
                     <div className="container">
                         <div className="row">
@@ -46,14 +46,14 @@ export const Calculator = () => {
                                         })}
                                         <div className="row ">
                                             <div className="col-sm-6  col-md-3">
-                                                <input className="form__field" type="text" pattern="[A-Za-z]" minLength={3} name="name" placeholder="Your name" />
+                                                <input className="form__field" type="text" pattern="[A-Za-z]+" minLength={3} name="name" placeholder="Your name" required />
                                             </div>
                                             <div className="col-sm-6  col-md-3">
-                                                <input className="form__field" type="tel" pattern="^\+[0-9]" minLength={3} name="tel" placeholder="+37494739446" />
+                                                <input className="form__field" type="tel" pattern="^\+[0-9]+" minLength={3} name="tel" placeholder="+37494739446" required />
                                             </div>
 
                                             <div className="col-sm-6 col-md-3">
-                                                <input className="form__field" type="email" minLength={3} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" placeholder="Transx@mail.ru" />
+                                                <input className="form__field" type="email" minLength={3} name="email" placeholder="Transx@mail.ru" required />
                                             </div>
                                             <div className="col-sm-6  col-md-3">
                                                 <div className="button button--green add__button" onClick={() => { handleForm() }}><span>Add New</span> </div>
@@ -76,8 +76,8 @@ export const Calculator = () => {
                     </div>
                 </section>
             </main>
-            <footer className="page-footer"><img className="section--bg b0 r0" src="img/footer-bg.png" alt="bg"/>
-                <Footer/>
+            <footer className="page-footer"><img className="section--bg b0 r0" src="img/footer-bg.png" alt="bg" />
+                <Footer />
             </footer>
         </div>)
 }

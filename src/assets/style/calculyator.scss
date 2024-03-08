@@ -5,3 +5,12 @@
 //.add__button {
 //    min-width: 100% !important;
 //}
+.calculator{
+    .form__field:invalid {
+        border-color: #767f7f;
+        &::placeholder{
+            color: #767f7f;
+        }
+    }
+    
+}
