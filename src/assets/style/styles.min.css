@@ -8476,9 +8476,9 @@ section.section {
     margin-top: 10px !important
 }
 
-.top-20 {
-    margin-top: 20px !important
-}
+/*.top-20 {*/
+/*    margin-top: 20px !important*/
+/*}*/
 
 .top-30 {
     margin-top: 30px !important
@@ -8870,7 +8870,7 @@ section.section {
     line-height: 46px;
     min-width: 170px;
     text-align: left;
-    border: 2px solid #00997d;
+    border: 2px solid #28a745;
     border-radius: 0 0 20px 0;
     padding: 0 20px
 }
@@ -8886,18 +8886,19 @@ section.section {
 
 .button--green:hover {
     color: #fff;
-    background: #00997d
+    background: #28a745
 }
 
 .button--promo {
     color: #fff;
     font-size: 14px;
-    background: #00997d;
+    background: #28a745;
     height: 60px;
     line-height: 60px;
     min-width: 190px;
     border-radius: 0 0 20px 0;
-    padding: 0 20px
+    padding: 0 20px;
+    border: 2px solid #28a745
 }
 
 .button--promo span {
@@ -8909,8 +8910,9 @@ section.section {
 }
 
 .button--promo:hover {
-    color: #fff;
-    background: #21bb9f
+    color: #414a53;
+    background: #fff;
+    border: 2px solid #28a745
 }
 
 .button--account {
@@ -9020,7 +9022,7 @@ section.section {
     font-weight: 700;
     letter-spacing: .15em;
     text-transform: uppercase;
-    margin-bottom: 17px;
+    /*margin-bottom: 17px;*/
     z-index: 1;
     position: relative
 }
@@ -14794,7 +14796,7 @@ p {
 }
 
 .promo-slider__wrapper-1, .promo-slider__wrapper-2, .promo-slider__wrapper-3 {
-    opacity: 0;
+    /*opacity: 0;*/
     -webkit-transition: all .6s;
     -o-transition: all .6s;
     transition: all .6s;
@@ -15892,7 +15894,7 @@ p {
     margin-top: 40px;
     height: 50px;
     line-height: 46px;
-    border: 2px solid #00997d;
+    border: 2px solid #28a745;
     background: 0 0;
     border-radius: 0 0 25px 0;
     -webkit-transition: all .3s;
@@ -15902,7 +15904,7 @@ p {
 
 .quote-form__submit:hover {
     color: #fff;
-    background: #00997d
+    background: #28a745
 }
 
 .contact-trigger {

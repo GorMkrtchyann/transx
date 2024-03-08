@@ -2,9 +2,9 @@ import React from 'react';
 import {Banner} from "../../components/banner";
 import About from "./About";
 import Achievement from "./Achievement";
-import Features from "./Features";
-import Quote from "./Quote";
-import Services from "./Services";
+import Features from "../../components/Features";
+import Quote from "../../components/Quote";
+import Services from "../../components/Services";
 import Footer from "../../components/footer";
 
 export const AboutPage = () => {
@@ -19,9 +19,7 @@ export const AboutPage = () => {
                 <Quote/>
                 <Services/>
             </main>
-            <footer className="page-footer"><img className="section--bg b0 r0" src="img/footer-bg.png" alt="bg"/>
                 <Footer/>
-            </footer>
         </div>
     );
 }

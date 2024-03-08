@@ -75,9 +75,7 @@ console.log(form)
                     </div>
                 </section>
             </main>
-            <footer className="page-footer"><img className="section--bg b0 r0" src="img/footer-bg.png" alt="bg" />
-                <Footer />
-            </footer>
+            <Footer />
         </div>)
 }
 
