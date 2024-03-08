@@ -115,6 +115,12 @@
         background: $green;
         text-decoration: none;
         border-radius: 5px;
+        transition: 0.3s;
+        &:hover{
+          background: $white;
+          color: $green;
+          //font-weight: 500;
+        }
       }
     }
     .dec-line{
@@ -220,3 +226,87 @@
     display: none;
   }
 }
+
+.contactus{
+  &__details{
+    display: flex;
+    position: relative;
+    z-index: 3;
+    gap: 80px;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+    & > div{
+      width: 50%;
+    }
+    &::-webkit-scrollbar{
+      height: 5px;
+      background: $lgray;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: $green;
+    }
+
+    a{
+      &:hover{
+        color: $green;
+      }
+      svg{
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+  }
+}
+
+.contacts-item__img{
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+}
+.form__field{
+  //&:invalid{
+  //  border-color: #e2e2e2;
+  //  &::placeholder{
+  //    color: #414a53;
+  //  }
+  //}
+}
+
+.button--green{
+  border-color: $green;
+  &:hover{
+    background: $green;
+  }
+}
+
+.footer{
+  &__top{
+    display: flex;
+    & > div{
+      width: auto;
+    }
+    &__scroll{
+      display: flex;
+      gap: 40px;
+      overflow-x: scroll;
+      &::-webkit-scrollbar{
+        height: 3px;
+        background: $lgray;
+      }
+      &::-webkit-scrollbar-thumb{
+        background: $green;
+      }
+    }
+  }
+  &__middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    img{
+      height: 50px;
+    }
+  }
+}
+

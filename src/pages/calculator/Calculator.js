@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import calculatorImg from '../../assets/images/bg/calculator.jpg';
 import CalculatorForm from './Calculatorform.js';
 import { Banner } from "../../components/banner";
-import Footer from "../../components/footer";
+import {Footer} from "../../components/footer";
 
 export const Calculator = () => {
     const [form, setForm] = useState([{

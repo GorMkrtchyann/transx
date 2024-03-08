@@ -10244,12 +10244,6 @@ form.tracking-form {
     width: calc(100% - 65px)
 }
 
-@media only screen and (min-width: 576px) {
-    .contacts-item__details {
-        width: calc(100% - 100px)
-    }
-}
-
 .contacts-item__link {
     color: inherit;
     text-decoration: none;
@@ -18581,14 +18575,6 @@ section.catalog {
     .page-footer .socials {
         padding-bottom: 9px
     }
-}
-
-.page-footer__menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap
 }
 
 .page-footer__title {
