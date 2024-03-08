@@ -1,10 +1,10 @@
 import React from 'react';
 import {Banner} from "../../components/banner";
-import About from "../../components/About";
-import Achievement from "../../components/Achievement";
-import Features from "../../components/Features";
-import Quote from "../../components/Quote";
-import Services from "../../components/Services";
+import About from "./About";
+import Achievement from "./Achievement";
+import Features from "./Features";
+import Quote from "./Quote";
+import Services from "./Services";
 import Footer from "../../components/footer";
 
 export const AboutPage = () => {

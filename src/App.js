@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
-import {Calculator} from "./page/calculator/Calculator";
+import {Calculator} from "./pages/calculator/Calculator";
 import { Header } from "./components/header";
-import AboutPage from "./page/aboutPage/AboutPage";
+import AboutPage from "./pages/aboutPage/AboutPage";
 
 function App() {
   return (
