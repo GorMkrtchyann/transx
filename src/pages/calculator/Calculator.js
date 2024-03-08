@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import calculatorImg from '../../assets/images/bg/calculator.jpg';
 import CalculatorForm from './Calculatorform.js';
-import '../../assets/style/calculyator.scss'
 import { Banner } from "../../components/banner";
 import Footer from "../../components/footer";
 
