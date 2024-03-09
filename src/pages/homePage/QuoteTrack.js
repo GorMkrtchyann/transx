@@ -70,7 +70,7 @@ const QuoteTrack = (props) => {
                     <div className="col-lg-7 top-50 top-lg-0">
                         <div className="form-wrapper">
                             <form className="form calculator-form" action="#" onSubmit={handleSubmit}>
-                                <h5 className="calculator-form__title">Calculation form</h5>
+                                <h5 className="calculator-form__title">Make a request</h5>
                                 <div className="row bottom-5 pl-3 pr-3">
                                     <div>
                                         <div className="row bottom-5">
@@ -138,7 +138,7 @@ const QuoteTrack = (props) => {
                                 </div>
                                 <div className="row mb-5">
                                     <div className="col-12 top-20">
-                                        <button className="button button--green form__button quote-form__submit" type="submit"><span>Send a request</span>
+                                        <button className="button button--green form__button" type="submit"><span>Send a request</span>
                                             <svg className="icon">
                                                 <use xlinkHref="#arrow"></use>
                                             </svg>
