@@ -6,3 +6,10 @@
         }
     }
 }
+
+.form__field:invalid, select {
+    border-color: #e2e2e2;
+    &::placeholder{
+        color: #767f7f;
+    }
+}

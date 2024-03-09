@@ -11,8 +11,8 @@ export const OfficeDetails = ({title, phones, email, address, socialsMedia}) => 
                 </div>
                 <div className="contacts-item__details">
                     {
-                        phones?.map(el => (
-                            <a className="contacts-item__link" href={`tel:${el}`}>{el}</a>
+                        phones?.map((el, i) => (
+                            <a className="contacts-item__link" href={`tel:${el}`} key={el+i}>{el}</a>
                         ))
                     }
                 </div>

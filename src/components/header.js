@@ -44,12 +44,12 @@ export const Header = () => {
                                     <a href="mailto:support@mail.com">Support@mail.com</a>
                                 </div>
                             </div>
-                            <Link to={'/'} className="header__right__top--btn">get a quote</Link>
+                            <Link to={'/calculator'} className="header__right__top--btn">get a quote</Link>
                         </div>
                         <div className={'dec-line'}/>
                         <div className="header__right__bottom">
-                            <Link to={'/'}>Home</Link>
-                            <Link to={'/'}>About Us</Link>
+                            <Link to={'/'} className={'active'}>Home</Link>
+                            <Link to={'/about'}>About Us</Link>
                             <div className={'dropdown'}
                                  onMouseEnter={() => setDropdownMenu(true)}
                                  onMouseLeave={() => setDropdownMenu(false)}
@@ -68,8 +68,8 @@ export const Header = () => {
                                 }
 
                             </div>
-                            <Link to={'/'}>Calculator</Link>
-                            <Link to={'/'}>Contact us</Link>
+                            <Link to={'/calculator'}>Calculator</Link>
+                            <Link to={'/contact'}>Contact us</Link>
                         </div>
                     </div>
                     <div className={'mob-menu-btn'} onClick={() => setMobMenu(!mobMenu)}>

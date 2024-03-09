@@ -1,9 +1,21 @@
 @import "vars";
-@import "calculyator";
+@import "calculator";
 
 *, body{
   padding: 0;
   margin: 0;
+}
+
+body{
+  &::-webkit-scrollbar{
+    background: $lgray;
+    width: 10px;
+    overflow: hidden;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: $green;
+    //border-radius: 3px;
+  }
 }
 
 .container{
@@ -264,6 +276,7 @@
   height: 50px;
   line-height: 48px;
 }
+
 .form__field{
   //&:invalid{
   //  border-color: #e2e2e2;
@@ -290,6 +303,7 @@
       display: flex;
       gap: 40px;
       overflow-x: scroll;
+      margin-left: 20px;
       &::-webkit-scrollbar{
         height: 3px;
         background: $lgray;
@@ -307,6 +321,15 @@
     img{
       height: 50px;
     }
+    @media screen and (max-width: 490px){
+      flex-direction: column;
+    }
   }
 }
 
+.page-footer__menu{
+  li{
+    width: auto;
+    white-space: nowrap;
+  }
+}
