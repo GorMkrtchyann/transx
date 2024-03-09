@@ -1,61 +1,70 @@
 import React from 'react'
+import { CalculatorIinput } from './Calculatorinput.js'
+import AddIcon from '@mui/icons-material/Add';
+import  { useState } from 'react'
 
-function CalculatorForm({ i, e, form, setForm }) {
-    function handleChange(e, i) {
-        const { name, value } = e.target
-        form[i][name] = value
-        setForm([...form])
+export const CalculatorForm = () => {
+    const [form, setForm] = useState([{
+        origin: "",
+        dealyvery: "",
+        service: "",
+        weight: "",
+        height: "",
+        width: "",
+        length: ""
+    }])
+
+    function handleForm() {
+        if (form.length < 5) {
+            return setForm([...form, {
+                origin: "",
+                dealyvery: "",
+                service: "",
+                weight: "",
+                height: "",
+                width: "",
+                length: ""
+            }])
+        }
     }
-
     return (
-        <>
-            <h6 className="calculator-form__title">Quote {i + 1}</h6>
-            <div className="row bottom-20" value={e.value} key={i}>
-                <div className="col-sm-4">
-                    <select className="form__select nice-select " name="origin" onChange={(e) => { handleChange(e, i,) }} required>
-                        <option value="">Country of origin </option>
-                        <option value="value">Value 1</option>
-                        <option value="value2">Value 2</option>
-                        <option value="value3">Value 3</option>
-                        <option value="value3">Value 4</option>
-                        <option value="value3">Value 5</option>
-                    </select>
+        <form className="form calculator-form" action="#">
+            <h5 className="calculator-form__title">Calculation form</h5>
+            <div className="row bottom-30 pl-3 pr-3">
+                {form.map((e, i) => {
+                    return <CalculatorIinput key={i} i={i} e={e} form={form} setForm={setForm} />
+                })}
+                <div className='w-100'>
+                    <div className='row '>
+
+                        <div className="col-sm-6 col-md-3">
+                            <input className="form__field" type="text" pattern="[A-Za-z]+" minLength={3} name="name" placeholder="Your name" required />
+                        </div>
+                        <div className="col-sm-6 col-md-3">
+                            <input className="form__field" type="tel" pattern="^\+[0-9]+" minLength={3} name="tel" placeholder="+37494739446" required />
+                        </div>
+
+                        <div className="col-sm-6 col-md-3">
+                            <input className="form__field" type="email" minLength={3} name="email" placeholder="Transx@mail.ru" required />
+                        </div>
+                        <div className="col-sm-6 col-md-3" onClick={() => { handleForm() }} >
+                            <span className='form__field form__button d-flex justify-content-center align-items-center'>
+                                <AddIcon />
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div className="col-sm-4">
-                    <select className="form__select nice-select" value={e.value} name="delivery" onChange={(e) => { handleChange(e, i,) }} required>
-                        <option value="">Country of delivery </option>
-                        <option value="value">Value 1</option>
-                        <option value="value2">Value 2</option>
-                        <option value="value3">Value 3</option>
-                        <option value="value3">Value 4</option>
-                        <option value="value3">Value 5</option>
-                    </select>
-                </div>
-                <div className="col-sm-4">
-                    <select className="form__select nice-select" value={e.value} name="service" onChange={(e) => { handleChange(e, i,) }} required>
-                        <option value="">Type of service </option>
-                        <option value="value">Value 1</option>
-                        <option value="value2">Value 2</option>
-                        <option value="value3">Value 3</option>
-                        <option value="value3">Value 4</option>
-                        <option value="value3">Value 5</option>
-                    </select>
-                </div>
-                <div className="col-sm-6 col-md-3">
-                    <input className="form__field" type="number" value={e.weight} name="weight" onChange={(e) => { handleChange(e, i,) }} placeholder="Weight (kg)" required />
-                </div>
-                <div className="col-sm-6 col-md-3">
-                    <input className="form__field" type="number" value={e.height} name="height" onChange={(e) => { handleChange(e, i,) }} placeholder="Height (cm)" required />
-                </div>
-                <div className="col-sm-6 col-md-3">
-                    <input className="form__field" type="number" value={e.width} name="width" onChange={(e) => { handleChange(e, i,) }} placeholder="Width (cm)" required />
-                </div>
-                <div className="col-sm-6 col-md-3">
-                    <input className="form__field" type="number" value={e.length} name="length" onChange={(e) => { handleChange(e, i,) }} placeholder="Lenght (cm)" required />
+
+            </div>
+            <div className="row mb-5">
+                <div className="col-12 top-20">
+                    <button className="button button--green form__button  " type="submit"><span>Send a request</span>
+                        <svg className="icon">
+                            <use xlinkHref="#arrow"></use>
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </>
+        </form>
     )
 }
-
-export default CalculatorForm

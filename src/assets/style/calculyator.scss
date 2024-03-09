@@ -1,13 +1,22 @@
-//#root {
-//    width: 100%;
-//}
-//
-//.add__button {
-//    min-width: 100% !important;
-//}
+@use './vars.scss';
+
+.form__button {
+   border: 2px solid vars.$green;
+   color:vars.$green ;
+   border-bottom-right-radius: 20px;
+   &:hover{
+    background-color:vars.$green ;
+    color:white ;
+    cursor: pointer;
+   }
+}
 .calculator{
-    .form__field:invalid {
-        border-color: #767f7f;
+.gap{
+   gap: 15px
+}
+
+    .form__field:invalid, select {
+        border-color: #e2e2e2;
         &::placeholder{
             color: #767f7f;
         }
