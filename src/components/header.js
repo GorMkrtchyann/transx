@@ -3,7 +3,7 @@ import CallIcon from '@mui/icons-material/Call';
 import {Link} from "react-router-dom";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {useNavigate} from "react-router";
+import {useLocation, useNavigate} from "react-router";
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {useState} from "react";
@@ -16,7 +16,9 @@ export const Header = () => {
     const [dropdownMenu, setDropdownMenu] = useState(false)
     const media = useMediaQuery('(max-width: 890px)')
     const navigate = useNavigate()
+    const {pathname} = useLocation()
 
+    console.log(pathname)
     return(
         <div className={'header'}>
             <div className={'sub-header'}>
@@ -48,28 +50,28 @@ export const Header = () => {
                         </div>
                         <div className={'dec-line'}/>
                         <div className="header__right__bottom">
-                            <Link to={'/'} className={'active'}>Home</Link>
-                            <Link to={'/about'}>About Us</Link>
+                            <Link to={'/'} className={pathname === '/' ? 'active' : ''}>Home</Link>
+                            <Link to={'/about'} className={pathname === '/about' ? 'active' : ''}>About Us</Link>
                             <div className={'dropdown'}
                                  onMouseEnter={() => setDropdownMenu(true)}
                                  onMouseLeave={() => setDropdownMenu(false)}
                             >
-                                <Link to={'/service'}>Services <ArrowDropDownIcon/></Link>
+                                <Link to={'/service'} className={pathname === '/service' ? 'active' : ''}>Services <ArrowDropDownIcon/></Link>
                                 {
                                     dropdownMenu ?
                                         <div className={'dropdown__menu'}>
-                                            <Link to={'/service/details'}>Truck Freight</Link>
-                                            <Link to={'/service/details'}>Ship Freight</Link>
-                                            <Link to={'/service/details'}>Plane Freight</Link>
-                                            <Link to={'/service/details'}>Train Freight</Link>
+                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Truck Freight</Link>
+                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Ship Freight</Link>
+                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Plane Freight</Link>
+                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Train Freight</Link>
                                         </div>
                                         :
                                         null
                                 }
 
                             </div>
-                            <Link to={'/calculator'}>Calculator</Link>
-                            <Link to={'/contact'}>Contact us</Link>
+                            <Link to={'/calculator'} className={pathname === '/calculator' ? 'active' : ''}>Calculator</Link>
+                            <Link to={'/contact'} className={pathname === '/contact' ? 'active' : ''}>Contact us</Link>
                         </div>
                     </div>
                     <div className={'mob-menu-btn'} onClick={() => setMobMenu(!mobMenu)}>
@@ -83,21 +85,21 @@ export const Header = () => {
                         {
                             !servicesNext ?
                                 <>
-                                    <Link to={'/'} className={'active'}>Home</Link>
-                                    <Link to={'/about'}>About Us</Link>
-                                    <Link to={'/service'} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
-                                    <Link to={'/calculator'}>Calculator</Link>
-                                    <Link to={'/contact'}>Contact</Link>
+                                    <Link to={'/'} className={pathname === '/' ? 'active' : ''}>Home</Link>
+                                    <Link to={'/about'} className={pathname === '/about' ? 'active' : ''}>About Us</Link>
+                                    <Link to={'/service'} className={pathname === '/service' ? 'active' : ''} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
+                                    <Link to={'/calculator'} className={pathname === '/calculator' ? 'active' : ''}>Calculator</Link>
+                                    <Link to={'/contact'} className={pathname === '/contact' ? 'active' : ''}>Contact</Link>
                                 </>
                                 :
                                 <>
                                     <div className={'mob-menu--perv'} onClick={() => setServiceNext(false)}>
                                         <ArrowLeftIcon sx={{width: 40, height: 40, color: "white"}}/>
                                     </div>
-                                    <Link to={'/service/details'}>Truck Freight</Link>
-                                    <Link to={'/service/details'}>Ship Freight</Link>
-                                    <Link to={'/service/details'}>Plane Freight</Link>
-                                    <Link to={'/service/details'}>Train Freight</Link>
+                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Truck Freight</Link>
+                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Ship Freight</Link>
+                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Plane Freight</Link>
+                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Train Freight</Link>
                                 </>
                         }
                     </div>

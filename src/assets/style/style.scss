@@ -164,7 +164,7 @@ body{
         align-items: center;
         transition: 0.2s;
         white-space: nowrap;
-        &:hover{
+        &:hover, &.active{
           color: $green;
         }
       }
@@ -248,9 +248,6 @@ body{
     gap: 80px;
     overflow-x: scroll;
     padding-bottom: 20px;
-    & > div{
-      width: 50%;
-    }
     &::-webkit-scrollbar{
       height: 5px;
       background: $lgray;
