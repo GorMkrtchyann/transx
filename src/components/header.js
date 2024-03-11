@@ -44,32 +44,32 @@ export const Header = () => {
                                     <a href="mailto:support@mail.com">Support@mail.com</a>
                                 </div>
                             </div>
-                            <Link to={'/'} className="header__right__top--btn">get a quote</Link>
+                            <Link to={'/calculator'} className="header__right__top--btn">get a quote</Link>
                         </div>
                         <div className={'dec-line'}/>
                         <div className="header__right__bottom">
-                            <Link to={'/'}>Home</Link>
-                            <Link to={'/'}>About Us</Link>
+                            <Link to={'/'} className={'active'}>Home</Link>
+                            <Link to={'/about'}>About Us</Link>
                             <div className={'dropdown'}
                                  onMouseEnter={() => setDropdownMenu(true)}
                                  onMouseLeave={() => setDropdownMenu(false)}
                             >
-                                <Link to={'/'}>Services <ArrowDropDownIcon/></Link>
+                                <Link to={'/service'}>Services <ArrowDropDownIcon/></Link>
                                 {
                                     dropdownMenu ?
                                         <div className={'dropdown__menu'}>
-                                            <Link to={'/'}>Truck Freight</Link>
-                                            <Link to={'/'}>Ship Freight</Link>
-                                            <Link to={'/'}>Plane Freight</Link>
-                                            <Link to={'/'}>Train Freight</Link>
+                                            <Link to={'/service/details'}>Truck Freight</Link>
+                                            <Link to={'/service/details'}>Ship Freight</Link>
+                                            <Link to={'/service/details'}>Plane Freight</Link>
+                                            <Link to={'/service/details'}>Train Freight</Link>
                                         </div>
                                         :
                                         null
                                 }
 
                             </div>
-                            <Link to={'/'}>Calculator</Link>
-                            <Link to={'/'}>Contact us</Link>
+                            <Link to={'/calculator'}>Calculator</Link>
+                            <Link to={'/contact'}>Contact us</Link>
                         </div>
                     </div>
                     <div className={'mob-menu-btn'} onClick={() => setMobMenu(!mobMenu)}>
@@ -84,20 +84,20 @@ export const Header = () => {
                             !servicesNext ?
                                 <>
                                     <Link to={'/'} className={'active'}>Home</Link>
-                                    <Link to={'/'}>About Us</Link>
-                                    <Link to={'/'} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
-                                    <Link to={'/'}>Calculator</Link>
-                                    <Link to={'/'}>Contact</Link>
+                                    <Link to={'/about'}>About Us</Link>
+                                    <Link to={'/service'} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
+                                    <Link to={'/calculator'}>Calculator</Link>
+                                    <Link to={'/contact'}>Contact</Link>
                                 </>
                                 :
                                 <>
                                     <div className={'mob-menu--perv'} onClick={() => setServiceNext(false)}>
                                         <ArrowLeftIcon sx={{width: 40, height: 40, color: "white"}}/>
                                     </div>
-                                    <Link to={'/'}>Truck Freight</Link>
-                                    <Link to={'/'}>Ship Freight</Link>
-                                    <Link to={'/'}>Plane Freight</Link>
-                                    <Link to={'/'}>Train Freight</Link>
+                                    <Link to={'/service/details'}>Truck Freight</Link>
+                                    <Link to={'/service/details'}>Ship Freight</Link>
+                                    <Link to={'/service/details'}>Plane Freight</Link>
+                                    <Link to={'/service/details'}>Train Freight</Link>
                                 </>
                         }
                     </div>

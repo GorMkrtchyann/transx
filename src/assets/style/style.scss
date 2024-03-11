@@ -1,9 +1,22 @@
 @import "vars";
 @import "calculator";
+@import "about";
 
 *, body{
   padding: 0;
   margin: 0;
+}
+
+body{
+  &::-webkit-scrollbar{
+    background: $lgray;
+    width: 10px;
+    overflow: hidden;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: $green;
+    //border-radius: 3px;
+  }
 }
 
 .container{
@@ -115,6 +128,12 @@
         background: $green;
         text-decoration: none;
         border-radius: 5px;
+        transition: 0.3s;
+        &:hover{
+          background: $white;
+          color: $green;
+          //font-weight: 500;
+        }
       }
     }
     .dec-line{
@@ -219,6 +238,118 @@
   @media screen and (min-width: 890px){
     display: none;
   }
+}
+
+.contactus{
+  &__details{
+    display: flex;
+    position: relative;
+    z-index: 3;
+    gap: 80px;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+    & > div{
+      width: 50%;
+    }
+    &::-webkit-scrollbar{
+      height: 5px;
+      background: $lgray;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: $green;
+    }
+
+    a{
+      &:hover{
+        color: $green;
+      }
+      svg{
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+  }
+}
+
+.contacts-item__img{
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+}
+
+.form__field{
+  //&:invalid{
+  //  border-color: #e2e2e2;
+  //  &::placeholder{
+  //    color: #414a53;
+  //  }
+  //}
+}
+
+.button--green{
+  border-color: $green;
+  &:hover{
+    background: $green;
+  }
+}
+
+.footer{
+  &__top{
+    display: flex;
+    & > div{
+      width: auto;
+    }
+    &__scroll{
+      display: flex;
+      gap: 40px;
+      overflow-x: scroll;
+      margin-left: 20px;
+      &::-webkit-scrollbar{
+        height: 3px;
+        background: $lgray;
+      }
+      &::-webkit-scrollbar-thumb{
+        background: $green;
+      }
+    }
+  }
+  &__middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    img{
+      height: 50px;
+    }
+    @media screen and (max-width: 490px){
+      flex-direction: column;
+    }
+  }
+}
+
+.page-footer__menu{
+  li{
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+.slider-control-bottomcenter{
+  & > div{
+    bottom: 30px !important;
+  }
+}
+
+
+.loader {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 20;
+  background: #fff;
+  display: flex;
+  align-items: center;
 }
 
 .map-box {

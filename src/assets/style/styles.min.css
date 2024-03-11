@@ -8894,11 +8894,13 @@ section.section {
     font-size: 14px;
     background: #28a745;
     height: 60px;
-    line-height: 60px;
     min-width: 190px;
     border-radius: 0 0 20px 0;
     padding: 0 20px;
-    border: 2px solid #28a745
+    border: 2px solid #28a745;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button--promo span {
@@ -10244,12 +10246,6 @@ form.tracking-form {
     -ms-flex-align: start;
     align-items: flex-start;
     width: calc(100% - 65px)
-}
-
-@media only screen and (min-width: 576px) {
-    .contacts-item__details {
-        width: calc(100% - 100px)
-    }
 }
 
 .contacts-item__link {
@@ -14854,7 +14850,7 @@ p {
 .promo-slider__overlay {
     display: none;
     color: transparent;
-    font-size: 200px;
+    font-size: 180px;
     line-height: .85;
     font-weight: 700;
     letter-spacing: -.050em;
@@ -14878,7 +14874,8 @@ p {
 .promo-slider__item {
     position: relative;
     color: #fff;
-    vertical-align: top
+    vertical-align: top;
+    height: 100vh;
 }
 
 .promo-slider__wrapper-1 {
@@ -18583,14 +18580,6 @@ section.catalog {
     .page-footer .socials {
         padding-bottom: 9px
     }
-}
-
-.page-footer__menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap
 }
 
 .page-footer__title {

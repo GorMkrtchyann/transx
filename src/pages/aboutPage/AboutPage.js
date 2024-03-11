@@ -5,7 +5,7 @@ import Achievement from "./Achievement";
 import Features from "../../components/Features";
 import Quote from "../../components/Quote";
 import Services from "../../components/Services";
-import Footer from "../../components/footer";
+import {Footer} from "../../components/footer";
 
 export const AboutPage = () => {
 

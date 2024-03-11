@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import Carousel from "nuka-carousel"
 
-const Promo = (props) => {
+const Promo = () => {
     const renderBottomCenterControls = ({ currentSlide, goToSlide }) => {
         const totalSlides = 3; // Total number of slides
         const lines = [];
@@ -52,7 +52,7 @@ const Promo = (props) => {
                               draggable={true}
                               renderBottomCenterControls={renderBottomCenterControls}>
                         <div className="promo-slider__item">
-                            <div className="promo-slider__layout"></div>
+                            <div className="promo-slider__layout"/>
                             <picture>
                                 <source srcSet="img/promo_1.jpg" media="(min-width: 992px)"/>
                                 <img className="img--bg" src="img/promo_1.jpg" alt="img"/>
@@ -63,7 +63,7 @@ const Promo = (props) => {
                                         <div className="row">
                                             <div className="col-lg-9 col-xl-7">
                                                 <div className="promo-slider__wrapper-1"><span
-                                                    className="promo-slider__overlay">TransX</span>
+                                                    className="promo-slider__overlay" style={{whiteSpace: "nowrap"}}>Vila Trans</span>
                                                     <h2 className="promo-slider__title">Transportation Services around the
                                                         World</h2>
                                                 </div>
@@ -88,7 +88,7 @@ const Promo = (props) => {
                             </div>
                         </div>
                         <div className="promo-slider__item text-center">
-                            <div className="promo-slider__layout"></div>
+                            <div className="promo-slider__layout"/>
                             <picture>
                                 <source srcSet="img/promo_2.jpg" media="(min-width: 992px)"/>
                                 <img className="img--bg" src="img/promo_2.jpg" alt="img"/>
@@ -99,7 +99,7 @@ const Promo = (props) => {
                                         <div className="row">
                                             <div className="col-12">
                                                 <div className="promo-slider__wrapper-1"><span
-                                                    className="promo-slider__overlay position-center">TransX</span>
+                                                    className="promo-slider__overlay position-center" style={{whiteSpace: "nowrap"}}>Vila Trans</span>
                                                     <h2 className="promo-slider__title">Worldwide Shipping</h2>
                                                 </div>
                                                 <div className="promo-slider__wrapper-2">
@@ -134,7 +134,7 @@ const Promo = (props) => {
                                         <div className="row">
                                             <div className="col-lg-9 col-xl-7">
                                                 <div className="promo-slider__wrapper-1"><span
-                                                    className="promo-slider__overlay">TransX</span>
+                                                    className="promo-slider__overlay" style={{whiteSpace: "nowrap"}}>Vila Trans</span>
                                                     <h2 className="promo-slider__title">Deliver Packages <br/>in any Way
                                                     </h2>
                                                 </div>
