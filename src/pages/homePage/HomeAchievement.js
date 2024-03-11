@@ -31,21 +31,32 @@ const HomeAchievement = (props) => {
 
     useEffect(() => {
         if (isElementInView) {
-            const intervalId = setInterval(() => {
+            const intervalId1 = setInterval(() => {
                 setNumbers(prevNumbers => {
                     const updatedNum1 = prevNumbers.num1 < 5 ? prevNumbers.num1 + 1 : prevNumbers.num1;
-                    const updatedNum2 = prevNumbers.num2 < 2 ? prevNumbers.num2 + 1 : prevNumbers.num2;
-                    const updatedNum3 = prevNumbers.num3 < 50 ? prevNumbers.num3 + 1 : prevNumbers.num3;
+                    return { ...prevNumbers, num1: updatedNum1 };
+                });
+            }, 50 * 10);
 
-                    return {
-                        num1: updatedNum1,
-                        num2: updatedNum2,
-                        num3: updatedNum3
-                    };
+            const intervalId2 = setInterval(() => {
+                setNumbers(prevNumbers => {
+                    const updatedNum2 = prevNumbers.num2 < 2 ? prevNumbers.num2 + 1 : prevNumbers.num2;
+                    return { ...prevNumbers, num2: updatedNum2 };
+                });
+            }, 50 * 25);
+
+            const intervalId3 = setInterval(() => {
+                setNumbers(prevNumbers => {
+                    const updatedNum3 = prevNumbers.num3 < 50 ? prevNumbers.num3 + 1 : prevNumbers.num3;
+                    return { ...prevNumbers, num3: updatedNum3 };
                 });
             }, 50);
 
-            return () => clearInterval(intervalId);
+            return () => {
+                clearInterval(intervalId1);
+                clearInterval(intervalId2);
+                clearInterval(intervalId3);
+            };
         }
     }, [isElementInView]);
 
