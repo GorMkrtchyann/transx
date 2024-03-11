@@ -1,0 +1,10 @@
+@use "./vars.scss";
+
+.services {
+    .box-count--white {
+        color: vars.$white;
+    }
+    .box-count--green {
+        color: vars.$green;
+    }
+}

@@ -54,14 +54,14 @@ export const Header = () => {
                                  onMouseEnter={() => setDropdownMenu(true)}
                                  onMouseLeave={() => setDropdownMenu(false)}
                             >
-                                <Link to={'/'}>Services <ArrowDropDownIcon/></Link>
+                                <Link to={'/service'}>Services <ArrowDropDownIcon/></Link>
                                 {
                                     dropdownMenu ?
                                         <div className={'dropdown__menu'}>
-                                            <Link to={'/'}>Truck Freight</Link>
-                                            <Link to={'/'}>Ship Freight</Link>
-                                            <Link to={'/'}>Plane Freight</Link>
-                                            <Link to={'/'}>Train Freight</Link>
+                                            <Link to={'/service/details'}>Truck Freight</Link>
+                                            <Link to={'/service/details'}>Ship Freight</Link>
+                                            <Link to={'/service/details'}>Plane Freight</Link>
+                                            <Link to={'/service/details'}>Train Freight</Link>
                                         </div>
                                         :
                                         null
@@ -84,20 +84,20 @@ export const Header = () => {
                             !servicesNext ?
                                 <>
                                     <Link to={'/'} className={'active'}>Home</Link>
-                                    <Link to={'/'}>About Us</Link>
-                                    <Link to={'/'} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
-                                    <Link to={'/'}>Calculator</Link>
-                                    <Link to={'/'}>Contact</Link>
+                                    <Link to={'/about'}>About Us</Link>
+                                    <Link to={'/service'} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
+                                    <Link to={'/calculator'}>Calculator</Link>
+                                    <Link to={'/contact'}>Contact</Link>
                                 </>
                                 :
                                 <>
                                     <div className={'mob-menu--perv'} onClick={() => setServiceNext(false)}>
                                         <ArrowLeftIcon sx={{width: 40, height: 40, color: "white"}}/>
                                     </div>
-                                    <Link to={'/'}>Truck Freight</Link>
-                                    <Link to={'/'}>Ship Freight</Link>
-                                    <Link to={'/'}>Plane Freight</Link>
-                                    <Link to={'/'}>Train Freight</Link>
+                                    <Link to={'/service/details'}>Truck Freight</Link>
+                                    <Link to={'/service/details'}>Ship Freight</Link>
+                                    <Link to={'/service/details'}>Plane Freight</Link>
+                                    <Link to={'/service/details'}>Train Freight</Link>
                                 </>
                         }
                     </div>
