@@ -1,9 +1,11 @@
 import { Route, Routes } from "react-router";
-import { Calculator } from "./page/calculator/Calculator";
+import { ServicePage } from "./pages/services/ServicePage";
+import { ServiceDetalisPage } from "./pages/services/ServiceDetalisPage";
 import { Header } from "./components/header";
-import AboutPage from "./page/aboutPage/AboutPage";
-import { ServicePage } from "./page/services/ServicePage";
-import { ServiceDetalisPage } from "./page/services/ServiceDetalisPage";
+import AboutPage from "./pages/aboutPage/AboutPage";
+import HomePage from "./pages/homePage/HomePage";
+import { Calculator } from "./pages/calculator/Calculator";
+import { Navigate } from "react-router/dist";
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/service" element={<ServicePage />} />
         <Route path="/service/detalis" element={<ServiceDetalisPage />} />
-
+       <Route path="/" element={<HomePage/>}/>
+       <Route path="*" element={<Navigate to="/"/>}/>
       </Routes>
     </>
   );

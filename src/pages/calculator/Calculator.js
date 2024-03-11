@@ -1,7 +1,7 @@
 
-import carImg from '../../assets/img/car_1.png'
-import calculatorImg from '../../assets/img/calculator.jpg'
-import '../../assets/style/calculyator.scss'
+import carImg from '../../assets/images/bg/car_1.png'
+import calculatorImg from '../../assets/images/bg/calculator.jpg'
+import '../../assets/style/calculator.scss'
 import { Banner } from "../../components/banner";
 import Footer from "../../components/footer";
 import { CalculatorForm } from '../../components/Calculatorform';
@@ -27,9 +27,7 @@ export const Calculator = () => {
                     </div>
                 </section>
             </main>
-            <footer className="page-footer"><img className="section--bg b0 r0" src="img/footer-bg.png" alt="bg" />
-                <Footer />
-            </footer>
+            <Footer />
         </div>)
 }
 

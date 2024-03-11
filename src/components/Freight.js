@@ -1,7 +1,7 @@
 import React from 'react'
-import serviceFreightImg from '../assets/img/services/service_freight_img.jpg';
+import serviceFreightImg from '../assets/images/services/service_freight_img.jpg';
 import '../assets/style/services.scss'
-import serviceDetalisImg  from '../assets/img/services/service_detalis_2.jpg'
+import serviceDetalisImg  from '../assets/images/services/service_detalis_2.jpg'
 export const Freight = () => {
      return (
         <>

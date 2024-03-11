@@ -24,7 +24,7 @@ function Achievement(props) {
     return (
         <section className="achievement-section"><img className="achievement-section__bg"
                                                       src="img/achievement-map.png" alt="img"/>
-            <div className="container">
+            <div className="container" id={"achievement-cont"}>
                 <div className="row bottom-50">
                     <div className="col-12">
                         <div className="heading heading--center"><span

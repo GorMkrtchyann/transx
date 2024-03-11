@@ -1,6 +1,6 @@
 import React from 'react';
 
-function About(props) {
+const About = (props) => {
     return (
         <>
             <section className="section">

@@ -1,0 +1,59 @@
+@use "./vars.scss";
+
+.form__button {
+    border: 2px solid vars.$green;
+    color: vars.$green;
+    border-bottom-right-radius: 20px;
+
+    &:hover {
+        background-color: vars.$green;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.not-allowed {
+    &:hover {
+        cursor: not-allowed;
+    }
+}
+
+.calculator {
+    .placeholder {
+        color: #767f7f;
+    }
+
+    .gap {
+        gap: 15px;
+    }
+
+    select {
+        overflow-y: auto;
+    }
+
+    ///MU
+    fieldset {
+        border-color: #e2e2e2 !important;
+    }
+
+    .MuiSelect-iconOpen {
+        border-color: black;
+    }
+
+    ///
+    .pointer {
+        cursor: pointer;
+    }
+
+    .form__field:invalid {
+        border-color: #e2e2e2;
+
+        &::placeholder {
+            color: #767f7f;
+        }
+    }
+
+    .form__field:focus {
+        border-color: black;
+    }
+}
