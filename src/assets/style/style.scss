@@ -1,5 +1,6 @@
 @import "vars";
 @import "calculator";
+@import "about";
 
 *, body{
   padding: 0;
@@ -332,4 +333,22 @@ body{
     width: auto;
     white-space: nowrap;
   }
+}
+
+.slider-control-bottomcenter{
+  & > div{
+    bottom: 30px !important;
+  }
+}
+
+
+.loader{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 20;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

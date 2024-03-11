@@ -8894,11 +8894,13 @@ section.section {
     font-size: 14px;
     background: #28a745;
     height: 60px;
-    line-height: 60px;
     min-width: 190px;
     border-radius: 0 0 20px 0;
     padding: 0 20px;
-    border: 2px solid #28a745
+    border: 2px solid #28a745;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button--promo span {
@@ -14848,7 +14850,7 @@ p {
 .promo-slider__overlay {
     display: none;
     color: transparent;
-    font-size: 200px;
+    font-size: 180px;
     line-height: .85;
     font-weight: 700;
     letter-spacing: -.050em;
@@ -14872,7 +14874,8 @@ p {
 .promo-slider__item {
     position: relative;
     color: #fff;
-    vertical-align: top
+    vertical-align: top;
+    height: 100vh;
 }
 
 .promo-slider__wrapper-1 {

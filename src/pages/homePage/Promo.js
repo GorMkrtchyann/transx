@@ -52,7 +52,7 @@ const Promo = () => {
                               draggable={true}
                               renderBottomCenterControls={renderBottomCenterControls}>
                         <div className="promo-slider__item">
-                            <div className="promo-slider__layout"></div>
+                            <div className="promo-slider__layout"/>
                             <picture>
                                 <source srcSet="img/promo_1.jpg" media="(min-width: 992px)"/>
                                 <img className="img--bg" src="img/promo_1.jpg" alt="img"/>
@@ -88,7 +88,7 @@ const Promo = () => {
                             </div>
                         </div>
                         <div className="promo-slider__item text-center">
-                            <div className="promo-slider__layout"></div>
+                            <div className="promo-slider__layout"/>
                             <picture>
                                 <source srcSet="img/promo_2.jpg" media="(min-width: 992px)"/>
                                 <img className="img--bg" src="img/promo_2.jpg" alt="img"/>

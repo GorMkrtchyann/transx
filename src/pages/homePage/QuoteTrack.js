@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import "../../assets/style/calculator.scss"
 
-const QuoteTrack = (props) => {
+const QuoteTrack = () => {
     const [form, setForm] = useState({
         origin: "",
         delivery: "",
