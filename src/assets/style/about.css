@@ -309,11 +309,11 @@ span.title {
     }
 }
 
-#achievement-cont {
+.achievement-cont {
     position: relative;
 }
 
-#achievement-cont > div:nth-child(1) {
+.achievement-cont > div:nth-child(1) {
     position: absolute;
     top: -140px;
     left: 50%;

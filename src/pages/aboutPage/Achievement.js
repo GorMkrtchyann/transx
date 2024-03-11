@@ -1,30 +1,58 @@
 import React, {useEffect, useState} from 'react';
 
 function Achievement(props) {
+    const [isElementInView, setIsElementInView] = useState(false);
     const [numbers, setNumbers] = useState({ num1: 0, num2: 0, num3: 0 });
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            setNumbers(prevNumbers => {
-                const updatedNum1 = prevNumbers.num1 < 5 ? prevNumbers.num1 + 1 : prevNumbers.num1;
-                const updatedNum2 = prevNumbers.num2 < 2 ? prevNumbers.num2 + 1 : prevNumbers.num2;
-                const updatedNum3 = prevNumbers.num3 < 50 ? prevNumbers.num3 + 1 : prevNumbers.num3;
+        const handleScroll = () => {
+            const targetElement = document.getElementById('elementAbout');
 
-                return {
-                    num1: updatedNum1,
-                    num2: updatedNum2,
-                    num3: updatedNum3
-                };
-            });
-        }, 50);
+            if (targetElement) {
+                const elementTop = targetElement.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
 
-        return () => clearInterval(intervalId);
+                if (elementTop < windowHeight - 50) {
+                    setIsElementInView(true);
+                    console.log("top " + elementTop)
+                    console.log(windowHeight)
+                } else {
+                    setIsElementInView(false);
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
+    useEffect(() => {
+        if (isElementInView) {
+            const intervalId = setInterval(() => {
+                setNumbers(prevNumbers => {
+                    const updatedNum1 = prevNumbers.num1 < 5 ? prevNumbers.num1 + 1 : prevNumbers.num1;
+                    const updatedNum2 = prevNumbers.num2 < 2 ? prevNumbers.num2 + 1 : prevNumbers.num2;
+                    const updatedNum3 = prevNumbers.num3 < 50 ? prevNumbers.num3 + 1 : prevNumbers.num3;
+
+                    return {
+                        num1: updatedNum1,
+                        num2: updatedNum2,
+                        num3: updatedNum3
+                    };
+                });
+            }, 50);
+
+            return () => clearInterval(intervalId);
+        }
+    }, [isElementInView]);
+
     return (
-        <section className="achievement-section"><img className="achievement-section__bg"
+        <section className="achievement-section" ><img className="achievement-section__bg"
                                                       src="img/achievement-map.png" alt="img"/>
-            <div className="container" id={"achievement-cont"}>
+            <div className="container achievement-cont" id={"elementAbout"}>
                 <div className="row bottom-50">
                     <div className="col-12">
                         <div className="heading heading--center"><span
