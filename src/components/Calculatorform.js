@@ -55,6 +55,9 @@ export const CalculatorForm = () => {
                         type="button"
                     >
                         <span>Send a Request</span>
+                        <svg class="icon">
+                            <use xlinkHref="#arrow"></use>
+                        </svg>
                     </button>
                 </div>
             </div>
