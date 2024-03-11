@@ -342,7 +342,7 @@ body{
 }
 
 
-.loader{
+.loader {
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -350,5 +350,9 @@ body{
   background: #fff;
   display: flex;
   align-items: center;
+}
+
+.map-box {
+  display: flex;
   justify-content: center;
 }
