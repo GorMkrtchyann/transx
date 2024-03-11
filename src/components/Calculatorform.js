@@ -33,7 +33,7 @@ export const CalculatorForm = () => {
                                     pattern={name === "name" ? "[A-Za-z]+" : name === "tel" ? "^+[0-9]+" : undefined}
                                     minLength={3}
                                     name={name}
-                                    placeholder={name === "name" ? "Your name" : name === "tel" ? "+374-xx-xx-xx" : "Transx@mail.ru"}
+                                    placeholder={name === "name" ? "Your name" : name === "tel" ? "+374-XX-XX-XX" : "Transx@mail.ru"}
                                     onChange={(e) => setUserData(prevUserData => ({ ...prevUserData, [name]: e.target.value }))}
                                     value={userData[name]}
                                     required
