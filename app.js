@@ -5,12 +5,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const cors = require('cors')
+const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
 app.use(cors())
 
 app.use(logger('dev'));
+app.use(bodyParser.json({limit: '500mb'}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
