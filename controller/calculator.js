@@ -27,7 +27,6 @@ class Calculator {
     };
     static select = async (req, res, next) => {
         try {
-            console.log(req.body.value);
             const { id, value, name } = req.body;
             const updatedDocument = await CalculatorModel.findByIdAndUpdate(
                 id,
@@ -62,5 +61,20 @@ class Calculator {
             next(err);
         }
     };
+    static edit = async (req,res,next) => {
+        const {  name, value, elementId } = req.body;
+        console.log(value, name, elementId)
+        try {
+            const updatedDocument = await CalculatorModel.findOneAndUpdate(
+                { [`select.${name}._id`]: elementId },
+                { $set: { [`select.${name}.$.value`]: value } },
+                { new: true }
+            ).select('select');
+            return res.json({ data: updatedDocument });
+        } catch (err) {
+            console.log(err)
+            next(err);
+        }
+    }
 }
 module.exports = Calculator;

@@ -9,5 +9,5 @@ router.route('/select')
     .get(Calculator.getSelect)
     .post(Calculator.select)
     .delete(Calculator.delete)
-
+    .patch(Calculator.edit)
 module.exports = router;
