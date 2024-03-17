@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const userRouter = require('./users')
 const calculatorRouter = require('./calculator')
+const homeRouter = require('./homePage');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.json({ message: 'successfully' })
 });
-router.use('/dashboard/pages/calculator', calculatorRouter)
+router.use('/pages/calculator', calculatorRouter)
+router.use('/home', homeRouter);
 
 module.exports = router;

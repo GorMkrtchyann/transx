@@ -1,4 +1,4 @@
-const CalculatorModel = require("../models/PagesModel");
+const { CalculatorModel } = require("../models/PagesModel");
 
 class Calculator {
     static img = async (req, res, next) => {
@@ -18,14 +18,14 @@ class Calculator {
 
     static getImg = async (req, res, next) => {
         try {
-            const data = await CalculatorModel.find().select("images").select('images');
+            const data = await CalculatorModel.find().select("images");
             res.json({ data });
         } catch (err) {
             console.log(err);
             next(err);
         }
     };
-    static select = async (req, res, next) => {
+    static addSelect = async (req, res, next) => {
         try {
             const { id, value, name } = req.body;
             const updatedDocument = await CalculatorModel.findByIdAndUpdate(
@@ -61,8 +61,8 @@ class Calculator {
             next(err);
         }
     };
-    static edit = async (req,res,next) => {
-        const {  name, value, elementId } = req.body;
+    static edit = async (req, res, next) => {
+        const { name, value, elementId } = req.body;
         console.log(value, name, elementId)
         try {
             const updatedDocument = await CalculatorModel.findOneAndUpdate(

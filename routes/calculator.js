@@ -1,5 +1,5 @@
 const express = require('express');
-const Calculator = require('../controller/calculator');
+const Calculator = require('../controllers/Calculator');
 const router = express.Router();
 
 router.route('/img')
@@ -7,7 +7,7 @@ router.route('/img')
     .get(Calculator.getImg)
 router.route('/select')
     .get(Calculator.getSelect)
-    .post(Calculator.select)
+    .post(Calculator.addSelect)
     .delete(Calculator.delete)
     .patch(Calculator.edit)
 module.exports = router;
