@@ -1,7 +1,7 @@
 const { CalculatorModel } = require("../models/PagesModel");
 
 class Calculator {
-    static img = async (req, res, next) => {
+    static CreateImg = async (req, res, next) => {
 
         try {
             const updatedDocument = await CalculatorModel.findByIdAndUpdate(
@@ -11,21 +11,20 @@ class Calculator {
             ).select('images');
             return res.json({ data: updatedDocument });
         } catch (err) {
-            console.log(err);
-            next(err);
+            res.json({ err })
         }
     };
 
-    static getImg = async (req, res, next) => {
+    static GetAllImg = async (req, res, next) => {
         try {
             const data = await CalculatorModel.find().select("images");
             res.json({ data });
         } catch (err) {
-            console.log(err);
-            next(err);
+            res.json({ err })
         }
     };
-    static addSelect = async (req, res, next) => {
+
+    static CreateSelect = async (req, res, next) => {
         try {
             const { id, value, name } = req.body;
             const updatedDocument = await CalculatorModel.findByIdAndUpdate(
@@ -35,20 +34,20 @@ class Calculator {
             );
             return res.json({ data: updatedDocument });
         } catch (err) {
-            console.log(err);
-            next(err);
+            res.json({ err })
         }
     };
-    static getSelect = async (req, res, next) => {
+
+    static GetAllSelect = async (req, res, next) => {
         try {
             const data = await CalculatorModel.find().select("select");
             res.json({ data });
         } catch (err) {
-            console.log(err);
-            next(err);
+            res.json({ err })
         }
     };
-    static delete = async (req, res, next) => {
+
+    static DeleteSelect = async (req, res, next) => {
         const { id, name, delets } = req.query;
         try {
             const updatedDocument = await CalculatorModel.findByIdAndUpdate(
@@ -58,10 +57,11 @@ class Calculator {
             ).select('select');
             return res.json({ data: updatedDocument });
         } catch (err) {
-            next(err);
+            res.json({ err })
         }
     };
-    static edit = async (req, res, next) => {
+
+    static EditSelect = async (req, res, next) => {
         const { name, value, elementId } = req.body;
         console.log(value, name, elementId)
         try {
@@ -72,8 +72,7 @@ class Calculator {
             ).select('select');
             return res.json({ data: updatedDocument });
         } catch (err) {
-            console.log(err)
-            next(err);
+            res.json({ err })
         }
     }
 }
