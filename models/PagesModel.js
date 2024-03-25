@@ -187,14 +187,13 @@ const CalculatorSchema = new Schema({
 })
 
 const CalculatorModel = pagesDB.model('Calculator', CalculatorSchema)
-
-const HomePageSlideSchema = new Schema ({
-    img: {type: String, required: true},
-    title: {type: Object, required: true},
-    description: {type: Object, required: true},
-    link: {type: String, required: true}
+const HomePageSlideSchema = new Schema({
+    img: { type: String, required: true },
+    title: { type: Object, required: true },
+    description: { type: Object, required: true },
+    link: { type: String, required: true }
 })
 
 const HomeSlideModel = pagesDB.model('HomeSlide', HomePageSlideSchema)
 
-module.exports = {HomeSlideModel,CalculatorModel}
+module.exports = { HomeSlideModel, CalculatorModel }
