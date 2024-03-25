@@ -1,9 +1,6 @@
 const { Schema, default: mongoose } = require('mongoose')
 const { pagesDB } = require('../conecters/AllConnects')
 
-const ContactOfficeInfo = new Schema({
-
-})
 
 const CalculatorSchema = new Schema({
     images: String,
@@ -194,6 +191,5 @@ const HomePageSlideSchema = new Schema({
     link: { type: String, required: true }
 })
 
-const HomeSlideModel = pagesDB.model('HomeSlide', HomePageSlideSchema)
 
-module.exports = { HomeSlideModel, CalculatorModel }
+module.exports = { HomePageSlideSchema, CalculatorModel }

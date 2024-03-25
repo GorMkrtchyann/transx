@@ -11,7 +11,9 @@ require("dotenv").config();
 const app = express();
 
 app.use(logger('dev'));
-app.use(express.json({limit:'600mb'}));
+app.use(bodyParser.json({limit: '500mb'}));
+app.use(express.json());
+app.use(express.json({limit:'500mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,29 +1,29 @@
-const {HomeSlideModel} = require("../models/PagesModel");
+const {HomeSlideModel, HomeServicesModel, HomeFeaturesModel} = require("../models/HomeModel");
 
 
 class HomePageController {
-    static slide = async (req, res, next) => {
+    async slide (req, res) {
         try {
             const slideData = req.body;
             await HomeSlideModel(slideData).save();
 
             const allData = await HomeSlideModel.find();
             return res.json(allData);
-        } catch (e) {
-            next(e);
+        } catch (err) {
+            res.json({error: err});
         }
     }
 
-    static sendAllSlides = async (req, res, next) => {
+    async sendAllSlides (req, res)  {
         try {
             const data = await HomeSlideModel.find();
             res.json(data);
-        } catch (e) {
-            next(e)
+        } catch (err) {
+            res.json({error: err});
         }
     }
 
-    static deleteSlide = async (req, res, next) => {
+    async deleteSlide (req, res)  {
         try {
             const {id} = req.params;
 
@@ -35,12 +35,12 @@ class HomePageController {
 
             const allData = await HomeSlideModel.find();
             return res.json(allData);
-        } catch (e) {
-            next(e)
+        } catch (err) {
+            res.json({error: err});
         }
     }
 
-    static editSlide = async (req, res, next) => {
+    async editSlide (req, res)  {
         try {
             const {_id} = req.body;
 
@@ -52,10 +52,64 @@ class HomePageController {
 
             const allData = await HomeSlideModel.find();
             return res.json(allData);
-        } catch (e) {
-            next(e)
+        } catch (err) {
+            res.json({error: err});
+        }
+    }
+
+    async updateServicesData (req, res) {
+        try {
+            const data = await HomeServicesModel.findOne({});
+            const id = data._id;
+            const updatedData = await  HomeServicesModel.findByIdAndUpdate(id, req.body, {new: true});
+
+            if (!updatedData) {
+                return res.status(404).json({ message: 'Model not found' });
+            }
+
+            res.json(updatedData);
+        } catch (err) {
+            res.json({error: err});
+        }
+    }
+
+    async getServicesData (req, res) {
+        try {
+            const data = await HomeServicesModel.findOne({});
+
+            if(!data) {
+                return res.status(404).json({message: 'Data not found'});
+            }
+
+            res.json(data);
+        } catch (err) {
+            res.json({error: err})
+        }
+    }
+
+    async updateFeaturesData (req, res) {
+        try {
+            const id = req.body.id;
+            const updating = await HomeFeaturesModel.findByIdAndUpdate(id, req.body, { new: true });
+
+            if (!updating) {
+                return res.status(404).json({ message: 'Model not found' });
+            }
+
+            res.json(updating)
+        } catch (err) {
+            res.json({error: err});
+        }
+    }
+
+    async getFeaturesData (req, res) {
+        try {
+            const data = await HomeFeaturesModel.findOne({});
+            res.json(data);
+        } catch (err) {
+            res.json({error: err});
         }
     }
 }
 
-module.exports = HomePageController
+module.exports = new HomePageController();
