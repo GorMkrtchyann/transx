@@ -60,7 +60,6 @@ function Achievement(props) {
         }
     }, [isElementInView]);
 
-
     return (
         <section className="achievement-section" ><img className="achievement-section__bg"
                                                       src="img/achievement-map.png" alt="img"/>

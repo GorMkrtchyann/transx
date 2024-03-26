@@ -6,21 +6,25 @@ import Features from "../../components/Features";
 import Quote from "../../components/Quote";
 import Services from "../../components/Services";
 import {Footer} from "../../components/footer";
+import {Header} from "../../components/header";
 
 export const AboutPage = () => {
 
     return (
-        <div className="page-wrapper">
-            <main className="main">
-                <Banner title={'About Us'} img={"img/about_bg.jpg"}/>
-                <About/>
-                <Achievement/>
-                <Features/>
-                <Quote/>
-                <Services/>
-            </main>
+        <>
+            <Header/>
+            <div className="page-wrapper">
+                <main className="main">
+                    <Banner title={'About Us'} img={"img/about_bg.jpg"}/>
+                    <About/>
+                    <Achievement/>
+                    <Features/>
+                    <Quote/>
+                    <Services/>
+                </main>
                 <Footer/>
-        </div>
+            </div>
+        </>
     );
 }
 

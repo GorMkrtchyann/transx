@@ -10,16 +10,14 @@ import { Navigate } from "react-router/dist";
 function App() {
   return (
     <>
-      <Header/>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/about" element={<AboutPage/>} />
-        <Route path="/contact" element={<ContactUs/>} />
-        <Route path="/calculator" element={<Calculator />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/service" element={<ServicePage />} />
-        <Route path="/service/details" element={<ServiceDetalisPage />} />
-        <Route path="*" element={<Navigate to="/"/>}/>
+          <Route path="/:lang" element={<HomePage/>} />
+        <Route path="/about/:lang" element={<AboutPage/>} />
+        <Route path="/contact/:lang" element={<ContactUs/>} />
+        <Route path="/calculator/:lang" element={<Calculator />} />
+        <Route path="/service/:lang" element={<ServicePage />} />
+        <Route path="/service/details/:lang" element={<ServiceDetalisPage />} />
+        <Route path="*" element={<Navigate to="/en"/>}/>
       </Routes>
     </>
   );

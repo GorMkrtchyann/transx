@@ -3,6 +3,7 @@ import {OfficeDetails} from "./officeDetails";
 import {useForm} from "react-hook-form";
 import {Footer} from "../../components/footer";
 import React from "react";
+import {Header} from "../../components/header";
 
 
 export const ContactUs = () => {
@@ -13,7 +14,9 @@ export const ContactUs = () => {
     }
 
     return(
-        <div className="page-wrapper">
+        <>
+            <Header/>
+            <div className="page-wrapper">
             <main className="main">
                 <Banner title={'Contact Us'} img={'https://demo.artureanec.com/html/transx/img/service-details.jpg'}/>
                 <section className="section contacts pb-0">
@@ -153,5 +156,6 @@ export const ContactUs = () => {
             </main>
             <Footer/>
         </div>
+        </>
     )
 }

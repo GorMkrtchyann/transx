@@ -5,12 +5,16 @@ import '../../assets/style/calculator.scss'
 import { Banner } from "../../components/banner";
 import {Footer} from "../../components/footer";
 import { CalculatorForm } from '../../components/Calculatorform';
+import {Header} from "../../components/header";
+import React from "react";
 
 export const Calculator = () => {
 
 
     return (
-        <div className="page-wrapper">
+        <>
+            <Header/>
+            <div className="page-wrapper">
             <main className="main">
                 <Banner title={'Calculator'} img={calculatorImg} />
                 <section className="section calculator">
@@ -27,6 +31,8 @@ export const Calculator = () => {
                 </section>
             </main>
             <Footer />
-        </div>)
+        </div>
+        </>
+    )
 }
 

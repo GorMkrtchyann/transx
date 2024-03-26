@@ -7,18 +7,24 @@ import Quote from "../../components/Quote";
 import {Footer} from "../../components/footer"
 import HomeAchievement from "./HomeAchievement";
 import QuoteTrack from "./QuoteTrack";
+import {Header} from "../../components/header";
+import {Routes} from "react-router";
 
 export const HomePage = () => {
     return (
-        <main className="main">
-            <Promo/>
-            <TransportServices/>
-            <Features/>
-            <Services/>
-            <Quote/>
-            <HomeAchievement/>
-            <QuoteTrack/>
-            <Footer/>
-        </main>
+        <>
+            <Header/>
+            <main className="main">
+                <Promo/>
+                <TransportServices/>
+                <Features/>
+                <Services/>
+                <Quote/>
+                <HomeAchievement/>
+                <QuoteTrack/>
+                <Footer/>
+            </main>
+        </>
+
     );
 }

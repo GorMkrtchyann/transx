@@ -3,22 +3,73 @@ import CallIcon from '@mui/icons-material/Call';
 import {Link} from "react-router-dom";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {useLocation, useNavigate} from "react-router";
+import {useLocation, useNavigate, useParams} from "react-router";
 import MenuIcon from '@mui/icons-material/Menu';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {useState} from "react";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import {useMediaQuery} from "@mui/material";
+import {IconChevronDown} from "@tabler/icons-react";
+
+const Language = () => {
+    const [open, setOpen] = useState(false)
+    const params = useParams()
+    const {pathname} = useLocation()
+    const media = useMediaQuery('(max-width: 1035px)')
+
+    const languageArr = {
+        en: 'ENG',
+        ru: 'Рус',
+        hy: 'Հայ',
+    }
+
+    const generateString = (lang) => {
+        const string = pathname.split('/').slice(1, -1).toString()
+        if (string === ''){
+            return lang
+        }else{
+            return string+'/'+lang
+        }
+    }
+
+    const languageArrKeys = Object.keys(languageArr)
+
+    return(
+        <div className={'languageSelect'}>
+            <div
+                style={{color: media ? '#29a948' : '#fff'}}
+                className="languageSelect__btn" onClick={() => setOpen(!open)}>
+                {languageArr[params.lang]}
+                <IconChevronDown/>
+            </div>
+            {
+                open ?
+                    <div className="languageSelect__values">
+                        {
+                            Object.values(languageArr).map((el,i) => (
+                                el !== languageArr[params.lang] ?
+                                    <Link to={'/'+generateString(languageArrKeys[i])} key={el+i} onClick={() => setOpen(false)}>{el}</Link>
+                                    :
+                                    null
+                            ))
+                        }
+                    </div>
+                    :
+                    null
+            }
+        </div>
+    )
+}
 
 export const Header = () => {
     const [servicesNext, setServiceNext] = useState(false)
     const [mobMenu, setMobMenu] = useState(false)
     const [dropdownMenu, setDropdownMenu] = useState(false)
-    const media = useMediaQuery('(max-width: 890px)')
+    const media = useMediaQuery('(max-width: 1035px)')
     const navigate = useNavigate()
     const {pathname} = useLocation()
+    const params = useParams()
 
-    console.log(pathname)
     return(
         <div className={'header'}>
             <div className={'sub-header'}>
@@ -47,34 +98,41 @@ export const Header = () => {
                                 </div>
                             </div>
                             <Link to={'/calculator'} className="header__right__top--btn">get a quote</Link>
+                            <Language/>
                         </div>
                         <div className={'dec-line'}/>
                         <div className="header__right__bottom">
-                            <Link to={'/'} className={pathname === '/' ? 'active' : ''}>Home</Link>
-                            <Link to={'/about'} className={pathname === '/about' ? 'active' : ''}>About Us</Link>
+                            <Link to={'/'+params.lang} className={pathname === '/' ? 'active' : ''}>Home</Link>
+                            <Link to={'/about/'+params.lang} className={pathname === '/about' ? 'active' : ''}>About Us</Link>
                             <div className={'dropdown'}
                                  onMouseEnter={() => setDropdownMenu(true)}
                                  onMouseLeave={() => setDropdownMenu(false)}
                             >
-                                <Link to={'/service'} className={pathname === '/service' ? 'active' : ''}>Services <ArrowDropDownIcon/></Link>
+                                <Link to={'/service/'+params.lang} className={pathname === '/service' ? 'active' : ''}>Services <ArrowDropDownIcon/></Link>
                                 {
                                     dropdownMenu ?
                                         <div className={'dropdown__menu'}>
-                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Truck Freight</Link>
-                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Ship Freight</Link>
-                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Plane Freight</Link>
-                                            <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Train Freight</Link>
+                                            <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Truck Freight</Link>
+                                            <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Ship Freight</Link>
+                                            <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Plane Freight</Link>
+                                            <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Train Freight</Link>
                                         </div>
                                         :
                                         null
                                 }
 
                             </div>
-                            <Link to={'/calculator'} className={pathname === '/calculator' ? 'active' : ''}>Calculator</Link>
-                            <Link to={'/contact'} className={pathname === '/contact' ? 'active' : ''}>Contact us</Link>
+                            <Link to={'/calculator/'+params.lang} className={pathname === '/calculator' ? 'active' : ''}>Calculator</Link>
+                            <Link to={'/contact/'+params.lang} className={pathname === '/contact' ? 'active' : ''}>Contact us</Link>
                         </div>
                     </div>
-                    <div className={'mob-menu-btn'} onClick={() => setMobMenu(!mobMenu)}>
+                    {
+                        media ?
+                            <Language/>
+                        :
+                            null
+                    }
+                    <div style={{marginLeft: 5}} className={'mob-menu-btn'} onClick={() => setMobMenu(!mobMenu)}>
                         <MenuIcon sx={{width: 40, height: 40, color: "black"}}/>
                     </div>
                 </div>
@@ -85,21 +143,21 @@ export const Header = () => {
                         {
                             !servicesNext ?
                                 <>
-                                    <Link to={'/'} className={pathname === '/' ? 'active' : ''}>Home</Link>
-                                    <Link to={'/about'} className={pathname === '/about' ? 'active' : ''}>About Us</Link>
-                                    <Link to={'/service'} className={pathname === '/service' ? 'active' : ''} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
-                                    <Link to={'/calculator'} className={pathname === '/calculator' ? 'active' : ''}>Calculator</Link>
-                                    <Link to={'/contact'} className={pathname === '/contact' ? 'active' : ''}>Contact</Link>
+                                    <Link to={'/'+params.lang} className={pathname === '/' ? 'active' : ''}>Home</Link>
+                                    <Link to={'/about/'+params.lang} className={pathname === '/about' ? 'active' : ''}>About Us</Link>
+                                    <Link to={'/service/'+params.lang} className={pathname === '/service' ? 'active' : ''} onClick={() => setServiceNext(true)}>Services <ArrowRightIcon/></Link>
+                                    <Link to={'/calculator/'+params.lang} className={pathname === '/calculator' ? 'active' : ''}>Calculator</Link>
+                                    <Link to={'/contact/'+params.lang} className={pathname === '/contact' ? 'active' : ''}>Contact</Link>
                                 </>
                                 :
                                 <>
                                     <div className={'mob-menu--perv'} onClick={() => setServiceNext(false)}>
                                         <ArrowLeftIcon sx={{width: 40, height: 40, color: "white"}}/>
                                     </div>
-                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Truck Freight</Link>
-                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Ship Freight</Link>
-                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Plane Freight</Link>
-                                    <Link to={'/service/details'} className={pathname === '/service/details' ? 'active' : ''}>Train Freight</Link>
+                                    <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Truck Freight</Link>
+                                    <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Ship Freight</Link>
+                                    <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Plane Freight</Link>
+                                    <Link to={'/service/details/'+params.lang} className={pathname === '/service/details' ? 'active' : ''}>Train Freight</Link>
                                 </>
                         }
                     </div>

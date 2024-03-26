@@ -26,7 +26,8 @@ const FooterAddress = ({title, location, phone, email, hours}) => {
 
 export const Footer = () => {
     return (
-        <footer className="page-footer"><img className="section--bg b0 r0" src={Images.footerBg} alt="bg"/>
+        <footer className="page-footer">
+            <img className="section--bg b0 r0" src={Images.footerBg} alt="bg"/>
             <div className="container">
                 <div className={'footer__top'}>
                     <div className="col-lg-3">
